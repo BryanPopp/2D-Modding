@@ -34,6 +34,9 @@ public class PlayerController : MonoBehaviour
     public int score;
     public bool gameOverstate;
 
+    public int sweets;
+    public AudioClip RushSound;
+
     
     // Start is called before the first frame update
     void Start()
@@ -50,6 +53,7 @@ public class PlayerController : MonoBehaviour
             talkAction.performed += FindFriend;
             audioSource = GetComponent<AudioSource>();
             gameOverstate = false;
+            sweets = 0;
         }
 
     // Update is called once per frame
@@ -85,6 +89,7 @@ public class PlayerController : MonoBehaviour
                             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                         }
                 }
+            
         }
 
     void FixedUpdate()
@@ -147,13 +152,29 @@ public class PlayerController : MonoBehaviour
         }
 
     public void GameOver()
-    {
+        {
         
         UIHandler.instance.DisplayGameOver();
         speed = 0;
         gameOverstate = true;
 
     
-    }
+        }
+
+    public void SweetTracker(int sweetamount)
+        {
+            sweets = sweets + sweetamount;
+            if (sweets == 3)
+                {
+                    SugarRush(); 
+                }
+        }
+    
+    private void SugarRush()
+        {
+            speed = 10;
+            isInvincible = true;
+            PlaySound(RushSound);
+        }
 }
 
