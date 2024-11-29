@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: bdd8411389c2efa418906cb393d71547
+guid: f0d49b6f795cc004a9b60b7ae321283b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - crateDropoff: {fileID: 151077690858145785, guid: 2566e3cd2b1ef1d46b037c0c55726744,
-      type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

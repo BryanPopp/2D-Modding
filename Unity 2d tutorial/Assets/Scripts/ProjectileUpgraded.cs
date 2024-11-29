@@ -3,35 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Projectile : MonoBehaviour
+public class ProjectileUpgraded : MonoBehaviour
 
 
 {
-    public CrateDropoff crateDropoff;
     Rigidbody2D rigidbody2d;
+    
 
     void Awake()
     {
-      crateDropoff = GameObject.Find("Supply Crate").GetComponent<CrateDropoff>();
       rigidbody2d = GetComponent<Rigidbody2D>();
+
     }
 
     void Update()
-    { 
-            
+    {
       if(transform.position.magnitude > 100.0f)
        {
            Destroy(gameObject);
        }
-
-    }
-
-    void FixedUpdate()
-    {
-      if (crateDropoff != null)
-      {
-        Upgraded();
-      }
 
     }
 
@@ -50,22 +40,10 @@ public class Projectile : MonoBehaviour
       Destroy(gameObject);
 
     }
-
-
-  public void Upgraded()
-  {
-    if (crateDropoff.isDelivered)
-    {
-      transform.localScale += new Vector3(0.05f,0.05f,0);
-    }
-  }
-
-  //public void DoIt()
- // {
-   // if (crateDropoff.isDelivered)
-   // {
-   //   Debug.Log("Hi!!!!");
-   // }
+  
+  //public void Upgraded()
+  //{
+   // transform.localScale += new Vector3(1.5f,1.5f,0);
   //}
 
 }
