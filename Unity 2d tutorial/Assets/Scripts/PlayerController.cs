@@ -41,6 +41,9 @@ public class PlayerController : MonoBehaviour
 
     public int check;
 
+    public int eleccheck;
+    public int towertrack;
+
     
     // Start is called before the first frame update
     void Start()
@@ -58,6 +61,8 @@ public class PlayerController : MonoBehaviour
             audioSource = GetComponent<AudioSource>();
             gameOverstate = false;
             sweets = 0;
+            eleccheck = 0;
+            towertrack = 0;
         }
 
     // Update is called once per frame
@@ -82,6 +87,11 @@ public class PlayerController : MonoBehaviour
                         }
                 }
             if (score == 4 || health == 0)
+                {
+                    GameOver();
+                }
+
+            if (towertrack == 3 && eleccheck == 1)
                 {
                     GameOver();
                 }
@@ -183,6 +193,15 @@ public class PlayerController : MonoBehaviour
             PlaySound(RushSound);
         }
 
+    public void ElecTracker(int elecamt)
+        {
+            eleccheck = eleccheck + elecamt;
+        }
+
+    public void TowerTracker(int toweramt)
+        {
+            towertrack = towertrack + toweramt;
+        }
 
 }
 
